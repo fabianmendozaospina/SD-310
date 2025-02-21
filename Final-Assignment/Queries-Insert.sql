@@ -1,8 +1,8 @@
 INSERT INTO [User] (username, firstName, lastName, [password], email, bio, profileUrl)
 VALUES 
-('cristiano', 'Cristiano', 'Ronaldo', 'cr7password', 'cristiano@example.com', 'Football legend', 'https://example.com/cristiano.jpg'),
-('messi', 'Lionel', 'Messi', 'messi10password', 'messi@example.com', 'Football magician', 'https://example.com/messi.jpg'),
-('serenawilliams', 'Serena', 'Williams', 'serenapassword', 'serena@example.com', 'Tennis champion', 'https://example.com/serena.jpg'),
+('cristiano', 'Cristiano', 'Ronaldo', 'cr7password', 'cristiano@example.com', 'Football legend', 'https://i.imgflip.com/9ky855.jpg'),
+('messi', 'Lionel', 'Messi', 'messi10password', 'messi@example.com', 'Football magician', 'https://i.imgflip.com/9ky8c1.jpg'),
+('serenawilliams', 'Serena', 'Williams', 'serenapassword', 'serena@example.com', 'Tennis champion', 'https://i.imgflip.com/9ky8sd.jpg'),
 ('that_talkative_user', 'John', 'Doe', 'talkativepassword', 'john@example.com', 'I love to chat', 'https://example.com/john.jpg'),
 ('aplasticplant', 'Plastic', 'Plant', 'plantpassword', 'plant@example.com', 'Just a plant', 'https://example.com/plant.jpg'),
 ('movie_quotes', 'Movie', 'Quotes', 'quotespassword', 'quotes@example.com', 'I love movies', 'https://example.com/quotes.jpg'),

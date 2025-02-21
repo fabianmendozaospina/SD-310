@@ -18,5 +18,17 @@ namespace Instagram.Controllers
             List<User> users = _userService.GetUsers();
             return View(users);
         }
+
+        public IActionResult Details(int id)
+        {
+            var user = _userService.GetUserById(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
     }
 }

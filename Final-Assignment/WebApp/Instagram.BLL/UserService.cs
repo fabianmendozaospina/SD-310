@@ -16,5 +16,10 @@ namespace Instagram.BLL
         {
             return _userRepository.GetAllUsers();
         }
+
+        public User GetUserById(int userId)
+        {
+            return _userRepository.GetUserById(userId);
+        }
     }
 }

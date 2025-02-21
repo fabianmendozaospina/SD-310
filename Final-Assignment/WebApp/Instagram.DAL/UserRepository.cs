@@ -1,4 +1,5 @@
-﻿using Instagram.Models;
+﻿using System.Linq;
+using Instagram.Models;
 
 namespace Instagram.DAL
 {
@@ -14,6 +15,11 @@ namespace Instagram.DAL
         public List<User> GetAllUsers()
         {
             return _context.Users.ToList();
+        }
+
+        public User GetUserById(int userId)
+        {
+            return _context.Users.FirstOrDefault(u => u.UserId == userId);
         }
     }
 }
