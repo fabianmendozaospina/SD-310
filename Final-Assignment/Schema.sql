@@ -193,26 +193,23 @@ END;
 
 GO
 
+
 CREATE TRIGGER trg_validate_comments
 ON Comment
-INSTEAD OF INSERT
+AFTER INSERT
 AS
 BEGIN
-    DECLARE @postId NVARCHAR(22);
-    DECLARE @isStory BIT;
-    
-    SELECT @postId = postId FROM inserted;
-    SELECT @isStory = isStory FROM Post WHERE postId = @postId;
-    
-    IF @isStory = 1 
+    DELETE FROM Comment
+    WHERE commentId IN (
+        SELECT i.commentId
+        FROM inserted i
+        JOIN Post p ON i.postId = p.postId
+        WHERE p.isStory = 1
+    );
+
+    IF @@ROWCOUNT > 0
     BEGIN
         THROW 50001, 'Cannot comment on a story.', 1;
     END
-    ELSE
-    BEGIN
-        INSERT INTO Comment (postId, userId, [timestamp], commentText) 
-        SELECT postId, userId, GETDATE(), commentText FROM inserted;
-    END
 END;
 
-GO

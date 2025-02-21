@@ -30,7 +30,15 @@ namespace Instagram.Controllers
                     CommentText = commentText
                 };
 
-                _commentService.AddComment(comment);
+                try
+                {
+                    _commentService.AddComment(comment);
+                    TempData["Status"] = "Comment add successfully!";
+                }
+                catch (Exception ex)
+                {
+                    TempData["Status"] = ex.Message;
+                }
             }
 
             return RedirectToAction("Details", "Post", new { id = postId });

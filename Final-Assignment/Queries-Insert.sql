@@ -45,15 +45,15 @@ VALUES
 ('story2', 2, '2023-10-02 12:00:00', 'Messi story', 1),           -- Messi's story
 ('story3', 3, '2023-10-03 12:00:00', 'Serena story', 1);          -- Serena's story
 
-INSERT INTO Comment (postId, userId, [timestamp], commentText)
-VALUES 
-('412EL5357109', 2, '2023-10-01 12:05:00', 'Great post!'),  -- Messi comments on Cristiano's post
-('post2', 1, '2023-10-02 12:05:00', 'Nice one!'),			-- Cristiano comments on Messi's post
-('post3', 2, '2023-10-03 12:05:00', 'Amazing!'),			-- Messi comments on Serena's post
-('post4', 3, '2023-10-04 12:05:00', 'Cool!'),				-- Serena comments on Talkative's post
-('post5', 4, '2023-10-05 12:05:00', 'Interesting!'),        -- Talkative comments on Plant's post
-('post6', 5, '2023-10-06 12:05:00', 'Love it!'),			-- Plant comments on Movie quotes' post
-('post7', 6, '2023-10-07 12:05:00', 'Awesome!');			-- Movie quotes comments on Party's post
+--INSERT INTO Comment (postId, userId, [timestamp], commentText)
+--VALUES 
+--('412EL5357109', 2, '2023-10-01 12:05:00', 'Great post!'),  -- Messi comments on Cristiano's post
+--('post2', 1, '2023-10-02 12:05:00', 'Nice one!'),			-- Cristiano comments on Messi's post
+--('post3', 2, '2023-10-03 12:05:00', 'Amazing!'),			-- Messi comments on Serena's post
+--('post4', 3, '2023-10-04 12:05:00', 'Cool!'),				-- Serena comments on Talkative's post
+--('post5', 4, '2023-10-05 12:05:00', 'Interesting!'),        -- Talkative comments on Plant's post
+--('post6', 5, '2023-10-06 12:05:00', 'Love it!'),			-- Plant comments on Movie quotes' post
+--('post7', 6, '2023-10-07 12:05:00', 'Awesome!');			-- Movie quotes comments on Party's post
 
 INSERT INTO [Like] (userId, postId, [timestamp])
 VALUES 

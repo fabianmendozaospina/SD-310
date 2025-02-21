@@ -9,7 +9,7 @@
 @foreach (var image in Model.Images)
 {
 	<br />
-	<img src="@image.ImageUrl" class="profile-pic" />
+	<img src="@image.ImageUrl" />
 	<br />
 }
 
@@ -48,14 +48,18 @@
 	</form>
 }
 
+<br />
 
 @foreach (var comment in Model.Comments)
 {
-	<br />
 	<p style="border-style:solid; border-color: gray; border-width:1px; padding: 4px;width:400px;">@comment.CommentText</p>
-	<br />
 }
 
 <br />
+
+@if(TempData["Status"] != null)
+{
+	<p>@TempData["Status"]</p>
+}
 <br />
 <a href="javascript:window.history.back();" style=" text-decoration: none; color: #0095f6;">Return</a>

@@ -32,7 +32,7 @@ namespace Instagram.DAL
                 }
                 catch (DbUpdateException ex)
                 {
-                    Console.WriteLine($"Error: {ex.InnerException?.Message}");
+                    throw;
                 }
             }
         }
