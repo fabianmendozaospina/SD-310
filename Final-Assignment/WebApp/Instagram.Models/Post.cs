@@ -1,4 +1,7 @@
-﻿namespace Instagram.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace Instagram.Models;
 
 public partial class Post
 {
@@ -6,7 +9,7 @@ public partial class Post
 
     public int UserId { get; set; }
 
-    public DateTime Timestamp { get; set; }
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
     public string Caption { get; set; } = null!;
 

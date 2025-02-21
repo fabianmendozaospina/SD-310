@@ -1,0 +1,61 @@
+﻿@model Post
+
+<h2>Post from @Model.User.FirstName @Model.User.LastName (@Model.PostId) - @Model.User.UserId</h2>
+
+<h3 class="me-3">@Model.Caption</h3>
+<h4 class="me-3">@Model.Timestamp</h4>
+<br />
+
+@foreach (var image in Model.Images)
+{
+	<br />
+	<img src="@image.ImageUrl" class="profile-pic" />
+	<br />
+}
+
+<br />
+<form asp-action="Reaction" asp-controller="Like" method="post">
+	<input type="hidden" asp-for="@Model.User.UserId" name="userId" />
+	<input type="hidden" asp-for="@Model.PostId" name="postId" />
+
+	@if (Model.Likes.FirstOrDefault(u => u.UserId == Model.User.UserId && u.PostId == Model.PostId) != null)
+	{
+		<button type="submit" style="width: 50px; height: 50px; ">
+			<img src="/images/like.png" style="width:40%" />
+		</button>
+	}
+	else
+	{
+		<button type="submit" style="width: 50px; height: 50px; ">
+			<img src="/images/unlike.png" style="width:40%" />
+		</button>
+	}
+</form>
+
+<br />
+
+@if (!Model.IsStory)
+{
+	<form asp-action="AddComment" asp-controller="Comment" method="post">
+		<input type="hidden" asp-for="@Model.User.UserId" name="userId" />
+		<input type="hidden" asp-for="@Model.PostId" name="postId" />
+
+		<textarea name="commentText" cols="50"></textarea>
+		<br />
+		<button type="submit">
+			Send Comment
+		</button>
+	</form>
+}
+
+
+@foreach (var comment in Model.Comments)
+{
+	<br />
+	<p style="border-style:solid; border-color: gray; border-width:1px; padding: 4px;width:400px;">@comment.CommentText</p>
+	<br />
+}
+
+<br />
+<br />
+<a href="javascript:window.history.back();" style=" text-decoration: none; color: #0095f6;">Return</a>

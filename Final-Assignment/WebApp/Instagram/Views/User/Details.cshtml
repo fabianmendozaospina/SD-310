@@ -10,18 +10,14 @@
         <div class="col-md-10">
             <div class=" mb-3">
                 <h3 class="me-3"><strong>@Model.FirstName  @Model.LastName</strong></h3>
-                <h4 class="me-3"><strong>@Model.Username</strong></h4>
-            </div>
-            <div class="stats mb-3">
-                <span>Posts: 123</span>
-                <span>Followers: 1.2M</span>
-                <span>Following: 456</span>
+                <h4 class="me-3">Username: <strong>@Model.Username</strong></h4>
+                <h4 class="me-3">Email: <strong>@Model.Email</strong></h4>
             </div>
             <div class="bio">
-                <h3>Bio</h3>
+                <h4>Bio</h4>
                 <p>@Model.Bio</p>
-                <p><a href="@Url.Action("Index", "User")" style="text-decoration: none; color: #0095f6;">Return</a></p>
             </div>
         </div>
     </div>
 </div>
+<a href="javascript:window.history.back();" style=" text-decoration: none; color: #0095f6;">Return</a>

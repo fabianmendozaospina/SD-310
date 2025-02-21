@@ -2,7 +2,7 @@
 
 <h2>Users followed by @($"{Model.First().FollowerNavigation.FirstName} {Model.First().FollowerNavigation.LastName}")</h2>
 <div>
-    <img src="@Model.First().FollowerNavigation.ProfileUrl" />
+    <img src="@Model.First().FollowerNavigation.ProfileUrl" class="profile-pic" />
 </div>
 <br />
 <table>
@@ -29,5 +29,4 @@
     </tbody>
 </table>
 <br />
-@* <a href="@Url.Action("Index", "User")">Return</a> *@
 <a href="javascript:window.history.back();">Return</a>

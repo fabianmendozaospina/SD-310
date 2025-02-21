@@ -15,11 +15,22 @@ namespace Instagram
             builder.Services.AddDbContext<InstagramContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // Register UserService in the injection dependencies container.
+            // Register services in the injection dependencies container.
             builder.Services.AddScoped<UserRepository>();
             builder.Services.AddScoped<FollowerRepository>();
+            builder.Services.AddScoped<PostRepository>();
+            builder.Services.AddScoped<LikeRepository>();
+            builder.Services.AddScoped<CommentRepository>();
+            builder.Services.AddScoped<ViewRepository>();
+            builder.Services.AddScoped<MessageRepository>();
+
             builder.Services.AddScoped<UserService>();
             builder.Services.AddScoped<FollowerService>();
+            builder.Services.AddScoped<PostService>();
+            builder.Services.AddScoped<LikeService>();
+            builder.Services.AddScoped<CommentService>();
+            builder.Services.AddScoped<ViewService>();
+            builder.Services.AddScoped<MessageService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

@@ -2,7 +2,7 @@
 
 <h2>Followers of @($"{Model.First().User.FirstName} {Model.First().User.LastName}")</h2>
 <div>
-    <img src="@Model.First().User.ProfileUrl" />
+    <img src="@Model.First().User.ProfileUrl" class="profile-pic" />
 </div>
 <br />
 <table>
@@ -29,5 +29,4 @@
     </tbody>
 </table>
 <br />
-@* <a href="@Url.Action("Index", "User")">Return</a> *@
 <a href="javascript:window.history.back();">Return</a>

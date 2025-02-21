@@ -1,0 +1,39 @@
+﻿@model Instagram.ViewModels.MessageUsersViewModel;
+
+<h2>Messaging</h2>
+
+<form asp-action="Send" method="post">
+    <div>
+        <label asp-for="Message.SenderId">Sender:</label>
+        <select asp-for="Message.SenderId"
+                asp-items="@(new SelectList(Model.UsersList, "UserId", "Username"))"
+                class="form-control">
+        </select>
+        <span asp-validation-for="Message.SenderId" class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Message.ReceiverId">Receiver:</label>
+        <select asp-for="Message.ReceiverId"
+                asp-items="@(new SelectList(Model.UsersList, "UserId", "Username"))"
+                class="form-control">
+        </select>
+        <span asp-validation-for="Message.ReceiverId" class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Message.MessageText">Message:</label>
+        <textarea asp-for="Message.MessageText" class="form-control"></textarea>
+        <span asp-validation-for="Message.MessageText" class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <button type="submit" class="btn btn-success">Send</button>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+@* @if (ViewBag?.Status??"" == "")
+{
+    <p>@ViewBag.Status</p>
+} *@

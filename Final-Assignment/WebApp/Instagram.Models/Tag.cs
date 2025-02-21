@@ -1,4 +1,7 @@
-﻿namespace Instagram.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace Instagram.Models;
 
 public partial class Tag
 {

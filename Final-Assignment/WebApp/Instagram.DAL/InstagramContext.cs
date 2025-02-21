@@ -32,9 +32,9 @@ public partial class InstagramContext : DbContext
 
     public virtual DbSet<View> Views { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=TOSHIVAA50FW111\\SQLEXPRESS;Database=Instagram;Integrated Security=True;TrustServerCertificate=True;");
+//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+//        => optionsBuilder.UseSqlServer("Server=FEMO\\SQLEXPRESS;Database=Instagram;Integrated Security=True;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -45,6 +45,7 @@ public partial class InstagramContext : DbContext
             entity.ToTable("Comment", tb => tb.HasTrigger("trg_validate_comments"));
 
             entity.Property(e => e.CommentId).HasColumnName("commentId");
+            entity.Property(e => e.CommentText).HasColumnName("commentText");
             entity.Property(e => e.PostId)
                 .HasMaxLength(22)
                 .HasColumnName("postId");
@@ -84,7 +85,7 @@ public partial class InstagramContext : DbContext
 
             entity.ToTable("Image");
 
-            entity.HasIndex(e => new { e.PostId, e.ImageUrl }, "UQ_Like_postId_imageUrl").IsUnique();
+            entity.HasIndex(e => new { e.PostId, e.ImageUrl }, "UQ_Image_postId_imageUrl").IsUnique();
 
             entity.Property(e => e.ImageId).HasColumnName("imageId");
             entity.Property(e => e.ImageUrl)
@@ -109,6 +110,9 @@ public partial class InstagramContext : DbContext
             entity.Property(e => e.PostId)
                 .HasMaxLength(22)
                 .HasColumnName("postId");
+            entity.Property(e => e.Timestamp)
+                .HasColumnType("datetime")
+                .HasColumnName("timestamp");
             entity.Property(e => e.UserId).HasColumnName("userId");
 
             entity.HasOne(d => d.Post).WithMany(p => p.Likes)
@@ -125,7 +129,7 @@ public partial class InstagramContext : DbContext
             entity.ToTable("Message");
 
             entity.Property(e => e.MessageId).HasColumnName("messageId");
-            entity.Property(e => e.Message1).HasColumnName("message");
+            entity.Property(e => e.MessageText).HasColumnName("message");
             entity.Property(e => e.ReceiverId).HasColumnName("receiverId");
             entity.Property(e => e.SenderId).HasColumnName("senderId");
             entity.Property(e => e.Timestamp)
@@ -153,8 +157,7 @@ public partial class InstagramContext : DbContext
                 .HasMaxLength(22)
                 .HasColumnName("postId");
             entity.Property(e => e.Caption)
-                .HasMaxLength(50)
-                .IsUnicode(false)
+                .HasMaxLength(200)
                 .HasColumnName("caption");
             entity.Property(e => e.Expiration)
                 .HasColumnType("datetime")
@@ -233,16 +236,16 @@ public partial class InstagramContext : DbContext
             entity.Property(e => e.PostId)
                 .HasMaxLength(22)
                 .HasColumnName("postId");
+            entity.Property(e => e.Timestamp)
+                .HasColumnType("datetime")
+                .HasColumnName("timestamp");
             entity.Property(e => e.UserId).HasColumnName("userId");
 
             entity.HasOne(d => d.Post).WithMany(p => p.Views)
                 .HasForeignKey(d => d.PostId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Story_Post_postId");
+                .OnDelete(DeleteBehavior.ClientSetNull);
 
-            entity.HasOne(d => d.User).WithMany(p => p.Views)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK_Story_User_userId");
+            entity.HasOne(d => d.User).WithMany(p => p.Views).HasForeignKey(d => d.UserId);
         });
 
         OnModelCreatingPartial(modelBuilder);

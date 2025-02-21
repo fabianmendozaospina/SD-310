@@ -1,4 +1,7 @@
-﻿namespace Instagram.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace Instagram.Models;
 
 public partial class Like
 {
@@ -7,6 +10,8 @@ public partial class Like
     public int UserId { get; set; }
 
     public string PostId { get; set; } = null!;
+
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
     public virtual Post Post { get; set; } = null!;
 
