@@ -32,7 +32,7 @@ CREATE TABLE Post (
 	postId NVARCHAR(22) NOT NULL,
 	userId INT NOT NULL,
 	[timestamp] DATETIME NOT NULL,
-	caption NVARCHAR(50) NOT NULL,
+	caption NVARCHAR(200) NOT NULL,
 	isStory BIT NOT NULL,
 	expiration DATETIME,
 	CONSTRAINT PK_Post_postId
@@ -78,13 +78,14 @@ CREATE TABLE [View] (
 	viewId INT IDENTITY(1,1) NOT NULL,
 	userId INT NOT NULL,
 	postId NVARCHAR(22) NOT NULL,
+	[timestamp] DATETIME NOT NULL,
 	CONSTRAINT PK_View_viewId
 		PRIMARY KEY (viewId),
-	CONSTRAINT FK_Story_User_userId
+	CONSTRAINT FK_View_User_userId
 		FOREIGN KEY (userId)
 		REFERENCES [User](userId)
 		ON DELETE CASCADE,
-	CONSTRAINT FK_Story_Post_postId
+	CONSTRAINT FK_View_Post_postId
 		FOREIGN KEY (postId)
 		REFERENCES Post(postId)
 );
@@ -94,6 +95,7 @@ CREATE TABLE Comment (
 	postId NVARCHAR(22) NOT NULL,
 	userId INT NOT NULL,
 	[timestamp] DATETIME NOT NULL,
+	commentText NVARCHAR(MAX) NOT NULL,
 	CONSTRAINT PK_Comment_commentId
 		PRIMARY KEY (commentId),
 	CONSTRAINT FK_Comment_User_userId
@@ -109,6 +111,7 @@ CREATE TABLE [Like] (
 	likeId INT IDENTITY(1,1) NOT NULL,
 	userId INT NOT NULL,
 	postId NVARCHAR(22) NOT NULL,
+	[timestamp] DATETIME NOT NULL,
 	CONSTRAINT PK_Like_likeId
 		PRIMARY KEY (likeId),
 	CONSTRAINT UQ_Like_userId_postId
@@ -128,7 +131,7 @@ CREATE TABLE [Image] (
 	imageUrl NVARCHAR(200) NOT NULL,
 	CONSTRAINT PK_Image_imageId
 		PRIMARY KEY (imageId),
-	CONSTRAINT UQ_Like_postId_imageUrl
+	CONSTRAINT UQ_Image_postId_imageUrl
 		UNIQUE (postId, imageUrl),
 	CONSTRAINT FK_Image_Post_postId
 		FOREIGN KEY (postId)
@@ -207,8 +210,8 @@ BEGIN
     END
     ELSE
     BEGIN
-        INSERT INTO Comment (postId, userId, [timestamp]) 
-        SELECT postId, userId, GETDATE() FROM inserted;
+        INSERT INTO Comment (postId, userId, [timestamp], commentText) 
+        SELECT postId, userId, GETDATE(), commentText FROM inserted;
     END
 END;
 

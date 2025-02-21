@@ -27,19 +27,18 @@ namespace Instagram.Controllers
         {
             if (message.MessageText == null || message.MessageText.Trim() == string.Empty)
             {
-                ViewBag.Status = "Enter your message!";
+                TempData["Status"] = "Enter your message!";
 
             }
             else
             {
                 _messageService.Send(message);
-                ViewBag.Status = "Message sent successfully!";
+                TempData["Status"] = "Message sent successfully!";
             }
 
             MessageUsersViewModel messageUsers = new MessageUsersViewModel(_userService);
 
-
-            return View("Index");
+            return RedirectToAction("Index");
         }
     }
 }

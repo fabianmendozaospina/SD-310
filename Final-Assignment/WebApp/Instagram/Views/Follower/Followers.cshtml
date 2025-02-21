@@ -5,7 +5,7 @@
     <img src="@Model.First().User.ProfileUrl" class="profile-pic" />
 </div>
 <br />
-<table>
+<table class="table table-borderless">
     <thead>
         <tr>
             <th style="width:25%">Username</th>
@@ -22,7 +22,7 @@
                 <td style="width:25%">@follower.FollowerNavigation.FirstName</td>
                 <td style="width:25%">@follower.FollowerNavigation.LastName</td>
                 <td style="width:25%">
-                    <a href="@Url.Action("Details", "User", new { id = follower.FollowerNavigation.UserId })">Details</a>
+                    <a class="btn btn-primary btn-sm" href="@Url.Action("Details", "User", new { id = follower.FollowerNavigation.UserId })">Details</a>
                 </td>
             </tr>
         }

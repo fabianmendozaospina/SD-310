@@ -5,7 +5,7 @@
     <img src="@Model.First().User.ProfileUrl" class="profile-pic" />
 </div>
 <br />
-<table>
+<table class="table table-borderless">
     <thead>
         <tr>
             <th style="width:33%">Timestamp</th>
@@ -20,7 +20,7 @@
                 <td style="width:33%">@posts.Timestamp</td>
                 <td style="width:33%">@posts.Caption</td>
                 <td style="width:33%">
-                    <a href="@Url.Action("Details", "Post", new { id = posts.PostId, userId = Model.First().User.UserId })">Details</a>
+                    <a class="btn btn-primary btn-sm" href="@Url.Action("Details", "Post", new { id = posts.PostId, userId = Model.First().User.UserId })">Details</a>
                 </td>
             </tr>
         }

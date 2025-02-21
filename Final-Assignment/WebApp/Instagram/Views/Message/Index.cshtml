@@ -33,7 +33,7 @@
     </div>
 </form>
 
-@* @if (ViewBag?.Status??"" == "")
+@if (TempData["Status"] != null)
 {
-    <p>@ViewBag.Status</p>
-} *@
+    <p>@TempData["Status"]</p>
+}
