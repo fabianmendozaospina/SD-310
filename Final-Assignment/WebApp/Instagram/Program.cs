@@ -17,7 +17,9 @@ namespace Instagram
 
             // Register UserService in the injection dependencies container.
             builder.Services.AddScoped<UserRepository>();
+            builder.Services.AddScoped<FollowerRepository>();
             builder.Services.AddScoped<UserService>();
+            builder.Services.AddScoped<FollowerService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

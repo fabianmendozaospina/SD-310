@@ -8,6 +8,11 @@ namespace Instagram.Controllers
     {
         private readonly FollowerService _followerService;
 
+        public FollowerController(FollowerService followerService)
+        {
+            _followerService = followerService;
+        }
+
         public IActionResult Index()
         {
             List<Follower> followers = _followerService.GetFollowers();

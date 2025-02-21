@@ -1,1 +1,32 @@
-﻿
+﻿@model IEnumerable<Follower>
+
+<h2>Followers of @($"{Model.First().User.FirstName} {Model.First().User.LastName}")</h2>
+<div>
+    <img src="@Model.First().User.ProfileUrl" />
+</div>
+<br />
+<table>
+    <thead>
+        <tr>
+            <th style="width:25%">Username</th>
+            <th style="width:25%">FirstName</th>
+            <th style="width:25%">LastName</th>
+            <th style="width:25%">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var follower in Model)
+        {
+            <tr>
+                <td style="width:25%">@follower.FollowerNavigation.Username</td>
+                <td style="width:25%">@follower.FollowerNavigation.FirstName</td>
+                <td style="width:25%">@follower.FollowerNavigation.LastName</td>
+                <td style="width:25%">
+                    <a href="@Url.Action("Details", "User", new { id = follower.FollowerNavigation.UserId })">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="@Url.Action("Index", "User")">Return</a>

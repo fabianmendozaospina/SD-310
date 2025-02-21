@@ -1,4 +1,5 @@
 ﻿using Instagram.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Instagram.DAL
 {
@@ -18,7 +19,11 @@ namespace Instagram.DAL
 
         public List<Follower> GetFollowersByUserId(int userId)
         {
-            return _context.Followers.Where(u => u.UserId == userId).ToList();
+            return _context.Followers
+                .Where(f => f.UserId == userId)
+                .Include(f => f.User) 
+                .Include(f => f.FollowerNavigation) 
+                .ToList();
         }
     }
 }

@@ -15,18 +15,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var user in Model)
         {
             <tr>
-                <td style="width:25%">@item.Username</td>
-                <td style="width:25%">@item.FirstName</td>
-                <td style="width:25%">@item.LastName</td>
+                <td style="width:25%">@user.Username</td>
+                <td style="width:25%">@user.FirstName</td>
+                <td style="width:25%">@user.LastName</td>
                 <td style="width:25%">
-                    <a href="@Url.Action("Details", "User", new { id = item.UserId })">Details</a> |
-                    <a href="@Url.Action("Followers", "Follower", new { id = item.UserId })">Followers</a> |
-                    <a href="@Url.Action("Following", "User", new { id = item.UserId })">Following</a> |
-                    <a href="@Url.Action("Posts", "User", new { id = item.UserId })">Posts</a> |
-                    <a href="@Url.Action("Stories", "User", new { id = item.UserId })">Stories</a>
+                    <a href="@Url.Action("Details", "User", new { id = user.UserId })">Details</a> |
+                    <a href="@Url.Action("Followers", "Follower", new { id = user.UserId })">Followers</a> |
+                    <a href="@Url.Action("Following", "User", new { id = user.UserId })">Following</a> |
+                    <a href="@Url.Action("Posts", "User", new { id = user.UserId })">Posts</a> |
+                    <a href="@Url.Action("Stories", "User", new { id = user.UserId })">Stories</a>
                 </td>
             </tr>
         }
