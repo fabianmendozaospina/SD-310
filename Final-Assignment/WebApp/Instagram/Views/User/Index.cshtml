@@ -5,28 +5,28 @@
     <img src="~/images/users.png" alt="Users"  />
 </div>
 <br />
-<table>
+<table class="table table-borderless">
     <thead>
         <tr>
-            <th style="width:25%">Username</th>
-            <th style="width:25%">FirstName</th>
-            <th style="width:25%">LastName</th>
-            <th style="width:25%">Actions</th>
+            <th style="width:20%">Username</th>
+            <th style="width:20%">FirstName</th>
+            <th style="width:20%">LastName</th>
+            <th style="width:40%">Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var user in Model)
         {
             <tr>
-                <td style="width:25%">@user.Username</td>
-                <td style="width:25%">@user.FirstName</td>
-                <td style="width:25%">@user.LastName</td>
-                <td style="width:25%">
-                    <a href="@Url.Action("Details", "User", new { id = user.UserId })">Details</a> |
-                    <a href="@Url.Action("Followers", "Follower", new { id = user.UserId })">Followers</a> |
-                    <a href="@Url.Action("Following", "Follower", new { id = user.UserId })">Following</a> |
-                    <a href="@Url.Action("Posts", "User", new { id = user.UserId })">Posts</a> |
-                    <a href="@Url.Action("Stories", "User", new { id = user.UserId })">Stories</a>
+                <td style="width:20%">@item.Username</td>
+                <td style="width:20%">@item.FirstName</td>
+                <td style="width:20%">@item.LastName</td>
+                <td style="width:40%">
+                    <a class="btn btn-success btn-sm" href="@Url.Action("Details", "User", new { id = item.UserId })">Details</a> 
+                    <a class="btn btn-secondary btn-sm" href="@Url.Action("Followers", "Follower", new { id = item.UserId })">Followers</a> 
+                    <a class="btn btn-secondary btn-sm" href="@Url.Action("Following", "User", new { id = item.UserId })">Following</a> 
+                    <a class="btn btn-secondary btn-sm" href="@Url.Action("Posts", "User", new { id = item.UserId })">Posts</a> 
+                    <a class="btn btn-secondary btn-sm" href="@Url.Action("Stories", "User", new { id = item.UserId })">Stories</a>
                 </td>
             </tr>
         }
