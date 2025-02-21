@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram", "Instagram\Instagram.csproj", "{34715D00-707C-4EE2-A8BC-6CC02BADF2CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.BLL", "Instagram.BLL\Instagram.BLL.csproj", "{958182DA-F63F-48A4-ABE7-BC8CA04DA5F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.DAL", "Instagram.DAL\Instagram.DAL.csproj", "{197A64A9-E910-4E34-8690-220A305EAF88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.Models", "Instagram.Models\Instagram.Models.csproj", "{603296D8-F33B-4580-AB03-0E537C90150E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34715D00-707C-4EE2-A8BC-6CC02BADF2CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34715D00-707C-4EE2-A8BC-6CC02BADF2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34715D00-707C-4EE2-A8BC-6CC02BADF2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34715D00-707C-4EE2-A8BC-6CC02BADF2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{958182DA-F63F-48A4-ABE7-BC8CA04DA5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958182DA-F63F-48A4-ABE7-BC8CA04DA5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958182DA-F63F-48A4-ABE7-BC8CA04DA5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958182DA-F63F-48A4-ABE7-BC8CA04DA5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{197A64A9-E910-4E34-8690-220A305EAF88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{197A64A9-E910-4E34-8690-220A305EAF88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{197A64A9-E910-4E34-8690-220A305EAF88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{197A64A9-E910-4E34-8690-220A305EAF88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{603296D8-F33B-4580-AB03-0E537C90150E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{603296D8-F33B-4580-AB03-0E537C90150E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{603296D8-F33B-4580-AB03-0E537C90150E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{603296D8-F33B-4580-AB03-0E537C90150E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
