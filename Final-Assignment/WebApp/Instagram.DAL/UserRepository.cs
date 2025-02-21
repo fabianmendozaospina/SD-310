@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Instagram.Models;
+﻿using Instagram.Models;
 
 namespace Instagram.DAL
 {

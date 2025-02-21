@@ -13,16 +13,16 @@ VALUES
 
 INSERT INTO Follower (userId, followerId)
 VALUES 
-(1, 2),  -- Cristiano follows Messi
-(2, 1),  -- Messi follows Cristiano
-(3, 1),  -- Serena follows Cristiano
-(4, 1),  -- that_talkative_user follows Cristiano
-(5, 1),  -- aplasticplant follows Cristiano
-(6, 1),  -- movie_quotes follows Cristiano
-(7, 1),  -- lifeoftheparty follows Cristiano
-(1, 3),  -- Cristiano follows Serena
-(2, 3),  -- Messi follows Serena
-(3, 2);  -- Serena follows Messi
+(2, 1),  -- Cristiano follows Messi
+(1, 2),  -- Messi follows Cristiano
+(1, 3),  -- Serena follows Cristiano
+(1, 4),  -- that_talkative_user follows Cristiano
+(1, 5),  -- aplasticplant follows Cristiano
+(1, 6),  -- movie_quotes follows Cristiano
+(1, 7),  -- lifeoftheparty follows Cristiano
+(3, 1),  -- Cristiano follows Serena
+(3, 2),  -- Messi follows Serena
+(2, 3);  -- Serena follows Messi
 
 INSERT INTO Post (postId, userId, [timestamp], caption, isStory)
 VALUES 

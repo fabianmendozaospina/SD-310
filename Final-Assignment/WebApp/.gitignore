@@ -42,12 +42,6 @@ pnpm-lock.yaml
 .dockerignore
 .kube/
 
-# Archivos de publicación y despliegue
-publish/
-wwwroot/
-wwwroot/lib/
-wwwroot/dist/
-
 # Certificados de desarrollo
 *.pfx
 *.p12

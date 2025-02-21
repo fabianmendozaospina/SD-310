@@ -32,7 +32,7 @@ CREATE TABLE Post (
 	postId NVARCHAR(22) NOT NULL,
 	userId INT NOT NULL,
 	[timestamp] DATETIME NOT NULL,
-	caption VARCHAR(50) NOT NULL,
+	caption NVARCHAR(50) NOT NULL,
 	isStory BIT NOT NULL,
 	expiration DATETIME,
 	CONSTRAINT PK_Post_postId
@@ -195,7 +195,7 @@ ON Comment
 INSTEAD OF INSERT
 AS
 BEGIN
-    DECLARE @postId VARCHAR(50);
+    DECLARE @postId NVARCHAR(22);
     DECLARE @isStory BIT;
     
     SELECT @postId = postId FROM inserted;

@@ -16,6 +16,7 @@ namespace Instagram.Controllers
         public IActionResult Index()
         {
             List<User> users = _userService.GetUsers();
+
             return View(users);
         }
 
