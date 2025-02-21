@@ -26,5 +26,13 @@ namespace Instagram.Controllers
 
             return View(followers);
         }
+
+        public IActionResult Following(int id)
+        {
+            List<Follower> following = _followerService.GetUsersByFollowerId(id);
+
+            return View(following);
+        }
+        
     }
 }

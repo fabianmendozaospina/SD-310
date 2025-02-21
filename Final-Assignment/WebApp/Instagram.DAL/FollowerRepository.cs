@@ -25,5 +25,14 @@ namespace Instagram.DAL
                 .Include(f => f.FollowerNavigation) 
                 .ToList();
         }
+
+        public List<Follower> GetUsersByFollowerId(int followerId)
+        {
+            return _context.Followers
+                .Where(f => f.FollowerId == followerId)
+                .Include(f => f.User)
+                .Include(f => f.FollowerNavigation)
+                .ToList();
+        }
     }
 }

@@ -24,7 +24,7 @@
                 <td style="width:25%">
                     <a href="@Url.Action("Details", "User", new { id = user.UserId })">Details</a> |
                     <a href="@Url.Action("Followers", "Follower", new { id = user.UserId })">Followers</a> |
-                    <a href="@Url.Action("Following", "User", new { id = user.UserId })">Following</a> |
+                    <a href="@Url.Action("Following", "Follower", new { id = user.UserId })">Following</a> |
                     <a href="@Url.Action("Posts", "User", new { id = user.UserId })">Posts</a> |
                     <a href="@Url.Action("Stories", "User", new { id = user.UserId })">Stories</a>
                 </td>

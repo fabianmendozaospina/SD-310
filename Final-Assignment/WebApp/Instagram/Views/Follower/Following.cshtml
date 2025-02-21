@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Follower>
 
-<h2>Followers of @($"{Model.First().User.FirstName} {Model.First().User.LastName}")</h2>
+<h2>Users followed by @($"{Model.First().FollowerNavigation.FirstName} {Model.First().FollowerNavigation.LastName}")</h2>
 <div>
-    <img src="@Model.First().User.ProfileUrl" />
+    <img src="@Model.First().FollowerNavigation.ProfileUrl" />
 </div>
 <br />
 <table>
@@ -15,14 +15,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var follower in Model)
+        @foreach (var user in Model)
         {
             <tr>
-                <td style="width:25%">@follower.FollowerNavigation.Username</td>
-                <td style="width:25%">@follower.FollowerNavigation.FirstName</td>
-                <td style="width:25%">@follower.FollowerNavigation.LastName</td>
+                <td style="width:25%">@user.User.Username</td>
+                <td style="width:25%">@user.User.FirstName</td>
+                <td style="width:25%">@user.User.LastName</td>
                 <td style="width:25%">
-                    <a href="@Url.Action("Details", "User", new { id = follower.FollowerNavigation.UserId })">Details</a>
+                    <a href="@Url.Action("Details", "User", new { id = user.User.UserId })">Details</a>
                 </td>
             </tr>
         }

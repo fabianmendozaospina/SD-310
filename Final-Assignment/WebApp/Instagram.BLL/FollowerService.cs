@@ -21,5 +21,10 @@ namespace Instagram.BLL
         {
             return _FollowerRepository.GetFollowersByUserId(userId);
         }
+
+        public List<Follower> GetUsersByFollowerId(int followerId)
+        {
+            return _FollowerRepository.GetUsersByFollowerId(followerId);
+        }
     }
 }
